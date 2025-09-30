@@ -25,6 +25,7 @@ const NavBar = () => {
     { name: "Templates", path: "/templates" },
     { name: "Builder", path: "/builder" },
     { name: "Feed", path: "/feed" },
+    { name: "Leaderboard", path: "/leaderboard" },
     { name: "Contact", path: "/contact" },
   ];
 

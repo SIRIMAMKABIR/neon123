@@ -18,6 +18,8 @@ import Messages from "./pages/Messages";
 import Leaderboard from "./pages/Leaderboard";
 import Explore from "./pages/Explore";
 import Referrals from "./pages/Referrals";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/leaderboard" element={<PageTransition><Leaderboard /></PageTransition>} />
             <Route path="/explore" element={<PageTransition><Explore /></PageTransition>} />
             <Route path="/referrals" element={<PageTransition><Referrals /></PageTransition>} />
+            <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
+            <Route path="/register" element={<PageTransition><Register /></PageTransition>} />
           </Routes>
         </AnimatePresence>
       </BrowserRouter>

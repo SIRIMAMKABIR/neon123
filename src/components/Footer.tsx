@@ -26,14 +26,14 @@ const Footer = () => {
     {
       title: "Community",
       links: [
+        { name: "Dashboard", path: "/dashboard" },
         { name: "Explore", path: "/explore" },
         { name: "Messages", path: "/messages" },
-        { name: "Referrals", path: "/referrals" },
-        { name: "Support", path: "/contact" }
+        { name: "Referrals", path: "/referrals" }
       ]
     },
     {
-      title: "Company",
+      title: "Firm",
       links: [
         { name: "About", path: "/about" },
         { name: "Contact", path: "/contact" },
@@ -123,7 +123,7 @@ const Footer = () => {
           >
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-sm text-foreground/50 font-light">
-                © {currentYear} Neon Tech. Digital fingerprints that matter.
+                © c2023 Neon Tech. Digital fingerprints that matter.
               </div>
               
               {/* Watermark */}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, TrendingUp, Users, Target, Calendar, Eye, ChartBar as BarChart3, Zap, Crown, ArrowRight, Play } from "lucide-react";
 import NavBar from "@/components/NavBar";
@@ -458,41 +459,49 @@ const Dashboard = () => {
                 </h3>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <motion.button
-                    className="glass p-6 rounded-2xl hover:bg-white/10 transition-colors text-left group"
-                    whileHover={{ y: -2 }}
-                  >
-                    <Sparkles className="w-6 h-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
-                    <h4 className="font-semibold text-foreground mb-2">Create Fingerprint</h4>
-                    <p className="text-sm text-foreground/60">Start a new digital presence</p>
-                  </motion.button>
-                  
-                  <motion.button
-                    className="glass p-6 rounded-2xl hover:bg-white/10 transition-colors text-left group"
-                    whileHover={{ y: -2 }}
-                  >
-                    <TrendingUp className="w-6 h-6 text-violet mb-3 group-hover:scale-110 transition-transform" />
-                    <h4 className="font-semibold text-foreground mb-2">Boost Post</h4>
-                    <p className="text-sm text-foreground/60">Amplify your latest content</p>
-                  </motion.button>
-                  
-                  <motion.button
-                    className="glass p-6 rounded-2xl hover:bg-white/10 transition-colors text-left group"
-                    whileHover={{ y: -2 }}
-                  >
-                    <Users className="w-6 h-6 text-crimson mb-3 group-hover:scale-110 transition-transform" />
-                    <h4 className="font-semibold text-foreground mb-2">Find Connections</h4>
-                    <p className="text-sm text-foreground/60">Discover like-minded creators</p>
-                  </motion.button>
-                  
-                  <motion.button
-                    className="glass p-6 rounded-2xl hover:bg-white/10 transition-colors text-left group"
-                    whileHover={{ y: -2 }}
-                  >
-                    <Target className="w-6 h-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
-                    <h4 className="font-semibold text-foreground mb-2">Set Goals</h4>
-                    <p className="text-sm text-foreground/60">Define your next milestone</p>
-                  </motion.button>
+                  <Link to="/templates">
+                    <motion.button
+                      className="glass p-6 rounded-2xl hover:bg-white/10 transition-colors text-left group w-full"
+                      whileHover={{ y: -2 }}
+                    >
+                      <Sparkles className="w-6 h-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                      <h4 className="font-semibold text-foreground mb-2">Templates</h4>
+                      <p className="text-sm text-foreground/60">Browse curated designs</p>
+                    </motion.button>
+                  </Link>
+
+                  <Link to="/builder">
+                    <motion.button
+                      className="glass p-6 rounded-2xl hover:bg-white/10 transition-colors text-left group w-full"
+                      whileHover={{ y: -2 }}
+                    >
+                      <TrendingUp className="w-6 h-6 text-violet mb-3 group-hover:scale-110 transition-transform" />
+                      <h4 className="font-semibold text-foreground mb-2">Builder</h4>
+                      <p className="text-sm text-foreground/60">Create your fingerprint</p>
+                    </motion.button>
+                  </Link>
+
+                  <Link to="/referrals">
+                    <motion.button
+                      className="glass p-6 rounded-2xl hover:bg-white/10 transition-colors text-left group w-full"
+                      whileHover={{ y: -2 }}
+                    >
+                      <Users className="w-6 h-6 text-crimson mb-3 group-hover:scale-110 transition-transform" />
+                      <h4 className="font-semibold text-foreground mb-2">Referrals</h4>
+                      <p className="text-sm text-foreground/60">Earn rewards</p>
+                    </motion.button>
+                  </Link>
+
+                  <Link to="/leaderboard">
+                    <motion.button
+                      className="glass p-6 rounded-2xl hover:bg-white/10 transition-colors text-left group w-full"
+                      whileHover={{ y: -2 }}
+                    >
+                      <Target className="w-6 h-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                      <h4 className="font-semibold text-foreground mb-2">Leaderboard</h4>
+                      <p className="text-sm text-foreground/60">Top creators</p>
+                    </motion.button>
+                  </Link>
                 </div>
               </motion.div>
             </div>
