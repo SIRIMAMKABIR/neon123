@@ -9,6 +9,7 @@ import NavBar from "@/components/NavBar";
 import AuraBackground from "@/components/AuraBackground";
 import usersData from "@/mock/users.json";
 import { formatDistanceToNow } from "date-fns";
+import { MessageCircle } from "lucide-react";
 
 interface Message {
   id: string;
@@ -345,7 +346,7 @@ const Messages = () => {
                       <motion.button
                         onClick={handleSendMessage}
                         disabled={!newMessage.trim()}
-                        className="btn-neon disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="btn-neon px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
                         whileHover={{ scale: newMessage.trim() ? 1.05 : 1 }}
                         whileTap={{ scale: newMessage.trim() ? 0.95 : 1 }}
                       >

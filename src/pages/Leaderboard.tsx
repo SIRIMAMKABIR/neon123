@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Crown, TrendingUp, Users, Zap, Star, Award, ArrowUp, ArrowDown } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -21,20 +22,63 @@ const Leaderboard = () => {
   const getRankIcon = (rank: number) => {
     switch (rank) {
       case 1:
-        return <Crown className="w-5 h-5 text-yellow-400" />;
+        return (
+          <motion.div
+            className="relative"
+            animate={{
+              filter: [
+                "drop-shadow(0 0 8px rgba(255, 213, 79, 0.6))",
+                "drop-shadow(0 0 16px rgba(255, 213, 79, 0.8))",
+                "drop-shadow(0 0 8px rgba(255, 213, 79, 0.6))"
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <Crown className="w-6 h-6" style={{ color: "#FFD54F" }} />
+          </motion.div>
+        );
       case 2:
-        return <Award className="w-5 h-5 text-gray-300" />;
+        return (
+          <motion.div
+            animate={{
+              filter: [
+                "drop-shadow(0 0 6px rgba(140, 197, 255, 0.5))",
+                "drop-shadow(0 0 12px rgba(140, 197, 255, 0.7))",
+                "drop-shadow(0 0 6px rgba(140, 197, 255, 0.5))"
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
+          >
+            <Award className="w-6 h-6" style={{ color: "#8CC5FF" }} />
+          </motion.div>
+        );
       case 3:
-        return <Star className="w-5 h-5 text-amber-600" />;
+        return (
+          <motion.div
+            animate={{
+              filter: [
+                "drop-shadow(0 0 6px rgba(255, 85, 112, 0.5))",
+                "drop-shadow(0 0 12px rgba(255, 85, 112, 0.7))",
+                "drop-shadow(0 0 6px rgba(255, 85, 112, 0.5))"
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
+          >
+            <Star className="w-6 h-6" style={{ color: "#FF5570" }} />
+          </motion.div>
+        );
       default:
         return <span className="text-lg font-bold text-foreground/40">#{rank}</span>;
     }
   };
 
-  const getTierGlow = (tier: string) => {
+  const getTierGlow = (tier: string, rank: number) => {
+    if (rank === 1) {
+      return "ring-2 shadow-lg shadow-[#FFD54F]/40";
+    }
     switch (tier) {
       case "Enterprise":
-        return "ring-2 ring-violet/40 shadow-lg shadow-violet/20";
+        return "ring-2 ring-primary/40 shadow-lg shadow-primary/20";
       case "Pro":
         return "ring-2 ring-primary/40 shadow-lg shadow-primary/20";
       default:
@@ -151,7 +195,7 @@ const Leaderboard = () => {
                               whileHover={{ scale: 1.1 }}
                               transition={{ type: "spring", stiffness: 300 }}
                             >
-                              <Avatar className={`w-16 h-16 ${getTierGlow(user.tier)}`}>
+                              <Avatar className={`w-16 h-16 ${getTierGlow(user.tier, index + 1)}`}>
                                 <img src={user.avatar} alt={user.name} />
                               </Avatar>
                             </motion.div>
@@ -214,10 +258,18 @@ const Leaderboard = () => {
                                 {user.badges.map((badge, badgeIndex) => (
                                   <motion.div
                                     key={badgeIndex}
-                                    className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                                    className="px-3 py-1 rounded-full text-xs font-medium"
+                                    style={{
+                                      background: "linear-gradient(135deg, rgba(140, 197, 255, 0.15), rgba(255, 85, 112, 0.15))",
+                                      color: "#8CC5FF",
+                                      border: "1px solid rgba(140, 197, 255, 0.3)"
+                                    }}
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: badgeIndex * 0.05, duration: 0.2 }}
+                                    whileHover={{
+                                      boxShadow: "0 0 20px rgba(140, 197, 255, 0.4)"
+                                    }}
                                   >
                                     {badge}
                                   </motion.div>

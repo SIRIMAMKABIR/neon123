@@ -125,17 +125,17 @@ const Referrals = () => {
                 <div className="space-y-3">
                   <motion.button
                     onClick={handleCopyCode}
-                    className="btn-neon w-full"
+                    className="btn-neon w-full flex items-center justify-center"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <Copy className="w-4 h-4 mr-2" />
                     Copy Referral Link
                   </motion.button>
-                  
+
                   <motion.button
                     onClick={handleShare}
-                    className="btn-glass w-full"
+                    className="btn-glass w-full flex items-center justify-center"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -236,11 +236,19 @@ const Referrals = () => {
                       <div className="flex items-center space-x-4">
                         <motion.div
                           className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                            milestone.completed 
-                              ? "bg-green-500/20" 
+                            milestone.completed
+                              ? "bg-green-500/20"
                               : "bg-primary/20"
                           }`}
                           whileHover={{ scale: 1.1 }}
+                          animate={milestone.completed ? {
+                            boxShadow: [
+                              "0 0 10px rgba(52, 211, 153, 0.3)",
+                              "0 0 20px rgba(52, 211, 153, 0.5)",
+                              "0 0 10px rgba(52, 211, 153, 0.3)"
+                            ]
+                          } : {}}
+                          transition={{ duration: 2, repeat: Infinity }}
                         >
                           <milestone.icon className={`w-5 h-5 ${
                             milestone.completed ? "text-green-400" : "text-primary"

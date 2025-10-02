@@ -11,7 +11,8 @@ const Footer = () => {
         { name: "Templates", path: "/templates" },
         { name: "Builder", path: "/builder" },
         { name: "Feed", path: "/feed" },
-        { name: "Leaderboard", path: "/leaderboard" }
+        { name: "Leaderboard", path: "/leaderboard" },
+        { name: "Dashboard", path: "/dashboard" }
       ]
     },
     {
@@ -26,7 +27,6 @@ const Footer = () => {
     {
       title: "Community",
       links: [
-        { name: "Dashboard", path: "/dashboard" },
         { name: "Explore", path: "/explore" },
         { name: "Messages", path: "/messages" },
         { name: "Referrals", path: "/referrals" }
@@ -37,8 +37,8 @@ const Footer = () => {
       links: [
         { name: "About", path: "/about" },
         { name: "Contact", path: "/contact" },
-        { name: "Privacy", path: "/privacy" },
-        { name: "Terms", path: "/terms" }
+        { name: "Login", path: "/login" },
+        { name: "Register", path: "/register" }
       ]
     }
   ];
@@ -123,7 +123,7 @@ const Footer = () => {
           >
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-sm text-foreground/50 font-light">
-                © c2023 Neon Tech. Digital fingerprints that matter.
+                © C2023 Neon Tech. Digital fingerprints that matter.
               </div>
               
               {/* Watermark */}
